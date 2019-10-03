@@ -51,7 +51,7 @@ def game(): #gets the guess and answer. Checks if guess was right or wrong and u
         print('The coin landed on ' + answer + '!')
     else:
         print('The dice rolled ' + str(answer) + '!')
-    if int(guess) == answer:
+    if guess == str(answer):
         correct_guesses += 1
         print('You were right!')
     else:
