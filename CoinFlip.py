@@ -5,8 +5,7 @@ wrong_guesses = 0
 type = True
 def game_type(): #ask if they want to play coin or dice game. returns type. coin makes type = True, dice makes type = false
     global type
-    game = input('would you like to guess the coin flip or dice roll?\n')
-    game = game.lower()
+    game = input('would you like to guess the coin flip or dice roll?\n').lower()
     if game == 'coin' or game == 'coin flip':
         type = True
     elif game == 'dice' or game == 'dice roll':
@@ -26,8 +25,7 @@ def coin_flip(): #if playing coin then returns heads or tails. if dice then retu
         return random_num
 def get_guess(): #asks for guess based on gametype. returns valid guess.
     if type == True:
-        guess = input('Will the coin flip land on heads or tails?\n')
-        guess = guess.lower()
+        guess = input('Will the coin flip land on heads or tails?\n').lower()
         if guess == 'head' or guess == 'heads':
             guess = 'heads'
         elif guess == 'tail' or guess == 'tails':
@@ -59,13 +57,16 @@ def game(): #gets the guess and answer. Checks if guess was right or wrong and u
         print('You were wrong!')
     print('Total correct guesses = ' + str(correct_guesses) + '\nTotal wrong guess = ' + str(wrong_guesses))
 def play_again(): #After the game this function asks if you would like to play again and return true if yes or false if no
-    again = input('Would you like to play again? (Y/N)\n')
-    again = again.lower()
+    global type
+    again = input('Would you like to play again? Select maybe if you would like to change the game type (Y/N/M)\n').lower()
     play = False
     if again == 'y' or again == 'yes':
         play = True
     elif again == 'n' or again == 'no':
         play = False
+    elif again == 'm' or again == 'maybe':
+        play = True
+        type = not type
     else:
         print('invalid response!')
         play_again()
